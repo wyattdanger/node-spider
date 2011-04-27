@@ -4,8 +4,11 @@
 
 require.paths.unshift("lib/");
 
-var Spider = require("spider").Spider;
+var Spider = require("spider").Spider,
+    spider = new Spider(),
+    target = process.argv[2];
+    
+    if (target === undefined) { target = "http://mailchimp.com"; }
 
-var spider = new Spider();
-spider.crawl("http://dshaw.com/");
+spider.crawl(target);
 
